@@ -1,35 +1,32 @@
-import { GlobalStyle } from "./styles/global";
-import { Header } from './components/Header'
-import { Dashboard } from "./components/Dashboard";
-import { useState } from "react";
-import { NewTodo } from './components/Header/NewTodo';
-import Modal from 'react-modal';
+import { useEffect, useState } from 'react';
 
-Modal.setAppElement('#root');
+import { Header } from './components/Header';
+import { ContainerInput, Lista, Item } from './styles/app';
+
+import { GlobalStyle } from './styles/global';
 
 export function App() {
+	const [items, setItems] = useState<string[] | []>([]);
 
-const [isNewToDoModalOpen, setIsNewToDoModalOpen] = useState(false);
+	const addTodo = (e: any) => {
+		e.preventDefault();
+		setItems([...items, e.target[0].value]);
+	};
 
-function handleOpenNewTodoModal(){
-   setIsNewToDoModalOpen(true);
+	return (
+		<>
+			<Header count={items.length} />
+			<ContainerInput onSubmit={addTodo}>
+				<input required />
+				<button>Adicionar</button>
+			</ContainerInput>
+			<Lista>
+				{items.map((item: string, index: number) => (
+					<Item key={String(index)}>{item}</Item>
+				))}
+			</Lista>
+			<GlobalStyle />
+		</>
+	);
 }
-
-function handleCloseNewTodoModal() { 
-   setIsNewToDoModalOpen(false);
-}
-
-
- return(
-    <>
-    <Header onOpenNewToDoModal={handleOpenNewTodoModal}/>
-    <Dashboard/>
-
-    <NewTodo isOpen={isNewToDoModalOpen} onRequestClose={handleCloseNewTodoModal}/>        
-
-    <GlobalStyle />
-    </>
-  
- )
-}
-export default App
+export default App;

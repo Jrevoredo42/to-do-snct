@@ -4,28 +4,22 @@ export const Container = styled.header`
     background: var(--brown);
     padding: 2rem 1rem 12rem;
     margin: 0 auto;
-    
-    
-` 
+`;
+
+
 export const Content = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    button{
-        font-size: 1rem;
-        color: #fff;
-        background: var(--cyan);
-        border: 0;
-        border-radius: 0.25rem;
-        height: 3rem;
-        width: 10rem;
-
-        transition: filter 0.2;
-
-        &:hover{
-            filter: brightness(120%) saturate(60%);
-        }
-
-    }
-`
+    
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background-color: var(--white);
+			font-size: 1rem;
+			height: 1.5rem;
+			width: 1.5rem;
+			border-radius: 9999px;
+		}
+`;
