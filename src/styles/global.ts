@@ -9,19 +9,17 @@ export const GlobalStyle = createGlobalStyle`
   --red: #C53030;
   --green: #38A169;
   --cyan: #00A3C4;
+  --white: #FEFEFE;
+  --gray: #454545;
 }
-
 
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
   }
 
   body{
     background: var(--background);
-    
-
   }
-`
+`;

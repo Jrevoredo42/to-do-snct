@@ -1,20 +1,17 @@
 import { Container, Content } from './styles';
 import iconTodo from '../../assets/todo-icone.svg';
 
-interface HeaderProps{
-
-    onOpenNewToDoModal: () => void;
+interface HeaderProps {
+	count: number;
 }
 
-
-export function Header({ onOpenNewToDoModal }: HeaderProps) {
-    return(
-        <Container>
-            <Content>
-            <img className='icon' alt='icon' src={iconTodo}/>
-            <button type='button' onClick={onOpenNewToDoModal}>Adicionar To Do</button>
-            </Content>
-          
-        </Container>
-    )
+export function Header({ count }: HeaderProps) {
+	return (
+		<Container>
+			<Content>
+				<img className="icon" alt="icon" src={iconTodo} />
+				<span>{count}</span>
+			</Content>
+		</Container>
+	);
 }
